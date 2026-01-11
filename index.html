@@ -4,93 +4,203 @@
   <meta charset="UTF-8" />
   <title>Planned Parenthood Generation Action | University of Arizona</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
+    :root {
+      --pp-pink: #e84c8b;
+      --pp-light-pink: #fde3ee;
+      --pp-dark: #2b2b2b;
+      --pp-gray: #666;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--pp-dark);
+      background: var(--pp-light-pink);
       line-height: 1.6;
-      color: #222;
-      background: #fafafa;
     }
+
     header {
-      background: #0057a3;
+      background: linear-gradient(135deg, #ff7eb3, #e84c8b);
       color: white;
-      padding: 3rem 1rem;
+      padding: 4rem 1.5rem;
       text-align: center;
     }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.6rem;
+    }
+
+    header p {
+      margin-top: 0.75rem;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     section {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2.5rem;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
     }
-    h1, h2 {
+
+    h2 {
       margin-top: 0;
+      color: var(--pp-pink);
+      font-size: 1.9rem;
     }
+
+    p {
+      color: var(--pp-gray);
+      font-size: 1.05rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .pill {
+      background: var(--pp-light-pink);
+      color: var(--pp-pink);
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
     .button {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.25rem;
-      background: #0057a3;
+      background: var(--pp-pink);
       color: white;
+      padding: 0.9rem 1.4rem;
+      border-radius: 8px;
       text-decoration: none;
-      border-radius: 4px;
+      font-weight: 600;
+      margin: 0.5rem;
     }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--pp-pink);
+      border: 2px solid var(--pp-pink);
+    }
+
     footer {
-      background: #eee;
-      padding: 1.5rem;
       text-align: center;
+      padding: 2rem 1rem 3rem;
+      color: #777;
       font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--pp-pink);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.1rem;
+      }
+
+      section {
+        margin: 1.5rem 1rem;
+        padding: 1.8rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>Planned Parenthood Generation Action</h1>
-  <p>University of Arizona</p>
+  <p>University of Arizona student advocates for reproductive justice, education, and action</p>
 </header>
 
 <section>
   <h2>Who We Are</h2>
   <p>
-    We are the Planned Parenthood Generation Action chapter at the University of Arizona.
-    Our club works to promote reproductive health, rights, and education on campus and in the Tucson community.
+    Planned Parenthood Generation Action (PPGen) is a national network of youth reproductive justice advocates
+    that operates within Planned Parenthood’s advocacy branch. Rather than providing healthcare services ourselves,
+    we engage in the advocacy that makes reproductive healthcare possible.
+  </p>
+</section>
+
+<section>
+  <h2>What We Believe In</h2>
+  <p>
+    PPGen is grounded in a reproductive justice framework. Reproductive justice is the right to have a child if
+    and when you want, the right to not have a child, and the right to parent and build families in safe and
+    healthy communities.
+  </p>
+  <p>
+    Our work includes advocacy for comprehensive sex education, abortion access, STI testing, maternal health,
+    domestic violence prevention, privacy rights, and the rights of marginalized communities.
   </p>
 </section>
 
 <section>
   <h2>What We Do</h2>
   <ul>
-    <li>Host educational events and discussions</li>
-    <li>Advocate for reproductive health access</li>
-    <li>Partner with campus and community groups</li>
-    <li>Support voter engagement and policy awareness</li>
+    <li>Mobilize students for reproductive justice advocacy</li>
+    <li>Educate the campus community on sexual and reproductive health</li>
+    <li>Partner with campus and community organizations</li>
+    <li>Support policy, voter, and issue based campaigns</li>
   </ul>
+
+  <h3 style="color:#e84c8b; margin-top:1.5rem;">Our Committees</h3>
+  <div class="pill-list">
+    <div class="pill">Education and Research</div>
+    <div class="pill">Advocacy</div>
+    <div class="pill">Outreach</div>
+  </div>
 </section>
 
 <section>
   <h2>Get Involved</h2>
   <p>
-    All students are welcome. No experience needed.
+    All University of Arizona students are welcome. No prior experience is required.
+    Join us to learn, take action, and build community together.
   </p>
-  <p>
-    Join our mailing list or follow us on social media to stay updated.
-  </p>
-  <a class="button" href="mailto:yourclubemail@email.com">Contact Us</a>
-</section>
 
-<section>
-  <h2>Connect With Us</h2>
-  <p>
-    Instagram: @yourhandle<br />
-    Email: yourclubemail@email.com
-  </p>
+  <div class="cta">
+    <a class="button" href="mailto:ppgenaction.ua@gmail.com">Email Us</a>
+    <a class="button secondary" href="https://www.instagram.com/uappgen/" target="_blank">Follow on Instagram</a>
+  </div>
 </section>
 
 <footer>
   <p>
     This organization is a registered student organization at the University of Arizona.
-    Planned Parenthood Generation Action is a national network of student activists.
+    PPGen is an affiliate of Planned Parenthood Arizona.
   </p>
 </footer>
 
