@@ -1,208 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Planned Parenthood Generation Action | University of Arizona</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<title>Planned Parenthood Generation Action | University of Arizona</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <style>
-    :root {
-      --pp-pink: #e84c8b;
-      --pp-light-pink: #fde3ee;
-      --pp-dark: #2b2b2b;
-      --pp-gray: #666;
-      --white: #ffffff;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    * {
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --pink-main: #e91e63;
+  --pink-soft: #fde6ef;
+  --pink-dark: #c2185b;
+  --ink: #1f1f1f;
+  --muted: #555;
+  --white: #ffffff;
+}
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--pp-dark);
-      background: var(--pp-light-pink);
-      line-height: 1.6;
-    }
+* { box-sizing: border-box; }
 
-    header {
-      background: linear-gradient(135deg, #ff7eb3, #e84c8b);
-      color: white;
-      padding: 4rem 1.5rem;
-      text-align: center;
-    }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--pink-soft);
+  color: var(--ink);
+  line-height: 1.7;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2.6rem;
-    }
+header {
+  background: radial-gradient(circle at top, #ff8bb8, #e91e63);
+  color: white;
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
+}
 
-    header p {
-      margin-top: 0.75rem;
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 800;
+}
 
-    section {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 2.5rem;
-      background: white;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-    }
+header p {
+  max-width: 720px;
+  margin: 1rem auto 0;
+  font-size: 1.15rem;
+}
 
-    h2 {
-      margin-top: 0;
-      color: var(--pp-pink);
-      font-size: 1.9rem;
-    }
+.lang-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
 
-    p {
-      color: var(--pp-gray);
-      font-size: 1.05rem;
-    }
+.lang-toggle button {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
 
-    ul {
-      padding-left: 1.2rem;
-    }
+section {
+  max-width: 1000px;
+  background: white;
+  margin: 3rem auto;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
 
-    li {
-      margin-bottom: 0.5rem;
-    }
+h2 {
+  color: var(--pink-main);
+  font-size: 2.1rem;
+  margin-top: 0;
+}
 
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
+p {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
 
-    .pill {
-      background: var(--pp-light-pink);
-      color: var(--pp-pink);
-      padding: 0.5rem 0.9rem;
-      border-radius: 999px;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
+ul {
+  padding-left: 1.2rem;
+}
 
-    .cta {
-      text-align: center;
-      margin-top: 2rem;
-    }
+li {
+  margin-bottom: 0.6rem;
+}
 
-    .button {
-      display: inline-block;
-      background: var(--pp-pink);
-      color: white;
-      padding: 0.9rem 1.4rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      margin: 0.5rem;
-    }
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
 
-    .button.secondary {
-      background: transparent;
-      color: var(--pp-pink);
-      border: 2px solid var(--pp-pink);
-    }
+.pill {
+  background: var(--pink-soft);
+  color: var(--pink-main);
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
 
-    footer {
-      text-align: center;
-      padding: 2rem 1rem 3rem;
-      color: #777;
-      font-size: 0.9rem;
-    }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
 
-    footer a {
-      color: var(--pp-pink);
-      text-decoration: none;
-      font-weight: 500;
-    }
+.gallery div {
+  background: #f2f2f2;
+  height: 200px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-weight: 600;
+}
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.1rem;
-      }
+.donate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
-      section {
-        margin: 1.5rem 1rem;
-        padding: 1.8rem;
-      }
-    }
-  </style>
+.donate-card {
+  background: var(--pink-soft);
+  border-radius: 18px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.donate-card img {
+  width: 160px;
+  height: 160px;
+  background: #ddd;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-block;
+  background: var(--pink-main);
+  color: white;
+  padding: 0.9rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 0.5rem;
+}
+
+.button.alt {
+  background: transparent;
+  color: var(--pink-main);
+  border: 2px solid var(--pink-main);
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  header h1 { font-size: 2.2rem; }
+  section { margin: 1.5rem 1rem; padding: 2rem; }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Planned Parenthood Generation Action</h1>
-  <p>University of Arizona student advocates for reproductive justice, education, and action</p>
+  <div class="lang-toggle">
+    <button onclick="toggleLanguage()">ES</button>
+  </div>
+  <h1 data-en="Planned Parenthood Generation Action"
+      data-es="Planned Parenthood Generación Acción">
+  Planned Parenthood Generation Action
+  </h1>
+  <p data-en="University of Arizona student advocates for reproductive justice, education, and action"
+     data-es="Estudiantes de la Universidad de Arizona que defienden la justicia reproductiva, la educación y la acción">
+  University of Arizona student advocates for reproductive justice, education, and action
+  </p>
 </header>
 
 <section>
-  <h2>Who We Are</h2>
-  <p>
-    Planned Parenthood Generation Action (PPGen) is a national network of youth reproductive justice advocates
-    that operates within Planned Parenthood’s advocacy branch. Rather than providing healthcare services ourselves,
-    we engage in the advocacy that makes reproductive healthcare possible.
+  <h2 data-en="Who We Are" data-es="Quiénes Somos">Who We Are</h2>
+  <p data-en="PPGen is a national network of youth reproductive justice advocates operating within Planned Parenthood’s advocacy branch."
+     data-es="PPGen es una red nacional de jóvenes que defienden la justicia reproductiva dentro de la rama de defensa de Planned Parenthood.">
+  PPGen is a national network of youth reproductive justice advocates operating within Planned Parenthood’s advocacy branch.
   </p>
 </section>
 
 <section>
-  <h2>What We Believe In</h2>
-  <p>
-    PPGen is grounded in a reproductive justice framework. Reproductive justice is the right to have a child if
-    and when you want, the right to not have a child, and the right to parent and build families in safe and
-    healthy communities.
-  </p>
-  <p>
-    Our work includes advocacy for comprehensive sex education, abortion access, STI testing, maternal health,
-    domestic violence prevention, privacy rights, and the rights of marginalized communities.
-  </p>
-</section>
-
-<section>
-  <h2>What We Do</h2>
+  <h2 data-en="What We Do" data-es="Qué Hacemos">What We Do</h2>
   <ul>
-    <li>Mobilize students for reproductive justice advocacy</li>
-    <li>Educate the campus community on sexual and reproductive health</li>
-    <li>Partner with campus and community organizations</li>
-    <li>Support policy, voter, and issue based campaigns</li>
+    <li data-en="Mobilize students for reproductive justice advocacy"
+        data-es="Movilizar a estudiantes para la defensa de la justicia reproductiva">
+      Mobilize students for reproductive justice advocacy
+    </li>
+    <li data-en="Educate the campus community on sexual health"
+        data-es="Educar a la comunidad universitaria sobre salud sexual">
+      Educate the campus community on sexual health
+    </li>
+    <li data-en="Distribute sexual health resources with campus partners"
+        data-es="Distribuir recursos de salud sexual con socios del campus">
+      Distribute sexual health resources with campus partners
+    </li>
   </ul>
 
-  <h3 style="color:#e84c8b; margin-top:1.5rem;">Our Committees</h3>
-  <div class="pill-list">
-    <div class="pill">Education and Research</div>
+  <div class="pills">
+    <div class="pill">Education & Research</div>
     <div class="pill">Advocacy</div>
     <div class="pill">Outreach</div>
   </div>
 </section>
 
 <section>
-  <h2>Get Involved</h2>
-  <p>
-    All University of Arizona students are welcome. No prior experience is required.
-    Join us to learn, take action, and build community together.
+  <h2 data-en="Gallery" data-es="Galería">Gallery</h2>
+  <p data-en="Photos from tabling, meetings, and campus events"
+     data-es="Fotos de mesas informativas, reuniones y eventos del campus">
+  Photos from tabling, meetings, and campus events
+  </p>
+
+  <div class="gallery">
+    <div>Image Placeholder</div>
+    <div>Image Placeholder</div>
+    <div>Image Placeholder</div>
+    <div>Image Placeholder</div>
+  </div>
+</section>
+
+<section>
+  <h2 data-en="Support Our Work" data-es="Apoya Nuestro Trabajo">Support Our Work</h2>
+  <p data-en="Donations support abortion access, advocacy, and care"
+     data-es="Las donaciones apoyan el acceso al aborto, la defensa y la atención">
+  Donations support abortion access, advocacy, and care
+  </p>
+
+  <div class="donate-grid">
+    <div class="donate-card">
+      <img alt="Planned Parenthood QR">
+      <h3>Planned Parenthood</h3>
+      <p>Scan to donate</p>
+    </div>
+
+    <div class="donate-card">
+      <img alt="TASC QR">
+      <h3>TASC</h3>
+      <p>Scan to donate</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-en="Get Involved" data-es="Participa">Get Involved</h2>
+  <p data-en="All UA students are welcome. No experience needed."
+     data-es="Todos los estudiantes de la UA son bienvenidos. No se requiere experiencia.">
+  All UA students are welcome. No experience needed.
   </p>
 
   <div class="cta">
     <a class="button" href="mailto:ppgenaction.ua@gmail.com">Email Us</a>
-    <a class="button secondary" href="https://www.instagram.com/uappgen/" target="_blank">Follow on Instagram</a>
+    <a class="button alt" href="https://www.instagram.com/uappgen/" target="_blank">Instagram</a>
   </div>
 </section>
 
 <footer>
   <p>
-    This organization is a registered student organization at the University of Arizona.
-    PPGen is an affiliate of Planned Parenthood Arizona.
+    Registered student organization at the University of Arizona. Affiliate of Planned Parenthood Arizona.
   </p>
 </footer>
+
+<script>
+let currentLang = "en";
+
+function toggleLanguage() {
+  currentLang = currentLang === "en" ? "es" : "en";
+  document.querySelectorAll("[data-en]").forEach(el => {
+    el.textContent = el.dataset[currentLang];
+  });
+}
+</script>
 
 </body>
 </html>
