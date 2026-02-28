@@ -34,6 +34,7 @@ header {
   color: white;
   padding: 5rem 1.5rem 4rem;
   text-align: center;
+  position: relative;
 }
 
 header h1 {
@@ -43,7 +44,7 @@ header h1 {
 }
 
 header p {
-  max-width: 720px;
+  max-width: 760px;
   margin: 1rem auto 0;
   font-size: 1.15rem;
 }
@@ -60,7 +61,7 @@ header p {
   color: white;
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -84,13 +85,8 @@ p {
   font-size: 1.05rem;
 }
 
-ul {
-  padding-left: 1.2rem;
-}
-
-li {
-  margin-bottom: 0.6rem;
-}
+ul { padding-left: 1.2rem; }
+li { margin-bottom: 0.6rem; }
 
 .pills {
   display: flex;
@@ -104,7 +100,7 @@ li {
   color: var(--pink-main);
   padding: 0.55rem 1rem;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
 }
 
@@ -123,7 +119,7 @@ li {
   align-items: center;
   justify-content: center;
   color: #999;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .donate-grid {
@@ -149,6 +145,52 @@ li {
   margin-bottom: 1rem;
 }
 
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.committee-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 18px;
+  padding: 1.6rem;
+  background: linear-gradient(180deg, #fff, #fff7fb);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: transform 0.15s ease;
+}
+
+.committee-card:hover {
+  transform: translateY(-2px);
+}
+
+.committee-card h3 {
+  margin: 0 0 0.4rem;
+  color: var(--ink);
+  font-size: 1.3rem;
+}
+
+.committee-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.0rem;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 0.9rem;
+  background: var(--pink-soft);
+  color: var(--pink-dark);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
 .cta {
   text-align: center;
   margin-top: 2rem;
@@ -160,7 +202,7 @@ li {
   color: white;
   padding: 0.9rem 1.6rem;
   border-radius: 10px;
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
   margin: 0.5rem;
 }
@@ -189,23 +231,25 @@ footer {
 
 <header>
   <div class="lang-toggle">
-    <button onclick="toggleLanguage()">ES</button>
+    <button id="langBtn" onclick="toggleLanguage()">ES</button>
   </div>
+
   <h1 data-en="Planned Parenthood Generation Action"
       data-es="Planned Parenthood Generación Acción">
-  Planned Parenthood Generation Action
+    Planned Parenthood Generation Action
   </h1>
+
   <p data-en="University of Arizona student advocates for reproductive justice, education, and action"
      data-es="Estudiantes de la Universidad de Arizona que defienden la justicia reproductiva, la educación y la acción">
-  University of Arizona student advocates for reproductive justice, education, and action
+    University of Arizona student advocates for reproductive justice, education, and action
   </p>
 </header>
 
 <section>
   <h2 data-en="Who We Are" data-es="Quiénes Somos">Who We Are</h2>
-  <p data-en="PPGen is a national network of youth reproductive justice advocates operating within Planned Parenthood’s advocacy branch."
+  <p data-en="PPGen is a national network of youth reproductive justice advocates working within Planned Parenthood’s advocacy branch."
      data-es="PPGen es una red nacional de jóvenes que defienden la justicia reproductiva dentro de la rama de defensa de Planned Parenthood.">
-  PPGen is a national network of youth reproductive justice advocates operating within Planned Parenthood’s advocacy branch.
+    PPGen is a national network of youth reproductive justice advocates working within Planned Parenthood’s advocacy branch.
   </p>
 </section>
 
@@ -216,20 +260,59 @@ footer {
         data-es="Movilizar a estudiantes para la defensa de la justicia reproductiva">
       Mobilize students for reproductive justice advocacy
     </li>
-    <li data-en="Educate the campus community on sexual health"
-        data-es="Educar a la comunidad universitaria sobre salud sexual">
-      Educate the campus community on sexual health
+    <li data-en="Educate the campus community on sexual and reproductive health"
+        data-es="Educar a la comunidad universitaria sobre salud sexual y reproductiva">
+      Educate the campus community on sexual and reproductive health
     </li>
-    <li data-en="Distribute sexual health resources with campus partners"
-        data-es="Distribuir recursos de salud sexual con socios del campus">
-      Distribute sexual health resources with campus partners
+    <li data-en="Share resources and build partnerships across campus and Tucson"
+        data-es="Compartir recursos y crear alianzas en el campus y en Tucson">
+      Share resources and build partnerships across campus and Tucson
     </li>
   </ul>
 
   <div class="pills">
-    <div class="pill">Education & Research</div>
-    <div class="pill">Advocacy</div>
-    <div class="pill">Outreach</div>
+    <div class="pill" data-en="Research" data-es="Investigación">Research</div>
+    <div class="pill" data-en="Advocacy" data-es="Defensa">Advocacy</div>
+    <div class="pill" data-en="Outreach" data-es="Alcance Comunitario">Outreach</div>
+  </div>
+</section>
+
+<section>
+  <h2 data-en="Committees, Fall 2025 Highlights" data-es="Comités, Logros de Otoño 2025">
+    Committees, Fall 2025 Highlights
+  </h2>
+  <p data-en="Click a committee to see what we accomplished and what we are building next."
+     data-es="Haz clic en un comité para ver lo que logramos y lo que construiremos después.">
+    Click a committee to see what we accomplished and what we are building next.
+  </p>
+
+  <div class="committee-grid">
+    <a class="committee-card" href="./advocacy/" onclick="saveLang()">
+      <h3 data-en="Advocacy Committee" data-es="Comité de Defensa">Advocacy Committee</h3>
+      <p data-en="Campus advocacy, tabling, events, and direct action."
+         data-es="Defensa en el campus, mesas informativas, eventos y acción directa.">
+        Campus advocacy, tabling, events, and direct action.
+      </p>
+      <span class="tag" data-en="View stats" data-es="Ver logros">View stats</span>
+    </a>
+
+    <a class="committee-card" href="./research/" onclick="saveLang()">
+      <h3 data-en="Research Committee" data-es="Comité de Investigación">Research Committee</h3>
+      <p data-en="Research planning, survey design, and resource mapping."
+         data-es="Plan de investigación, diseño de encuestas y mapeo de recursos.">
+        Research planning, survey design, and resource mapping.
+      </p>
+      <span class="tag" data-en="View stats" data-es="Ver logros">View stats</span>
+    </a>
+
+    <a class="committee-card" href="./outreach/" onclick="saveLang()">
+      <h3 data-en="Outreach Committee" data-es="Comité de Alcance Comunitario">Outreach Committee</h3>
+      <p data-en="Community building, partnerships, and storytelling."
+         data-es="Comunidad, alianzas y narración de nuestro trabajo.">
+        Community building, partnerships, and storytelling.
+      </p>
+      <span class="tag" data-en="View stats" data-es="Ver logros">View stats</span>
+    </a>
   </div>
 </section>
 
@@ -237,7 +320,7 @@ footer {
   <h2 data-en="Gallery" data-es="Galería">Gallery</h2>
   <p data-en="Photos from tabling, meetings, and campus events"
      data-es="Fotos de mesas informativas, reuniones y eventos del campus">
-  Photos from tabling, meetings, and campus events
+    Photos from tabling, meetings, and campus events
   </p>
 
   <div class="gallery">
@@ -252,20 +335,20 @@ footer {
   <h2 data-en="Support Our Work" data-es="Apoya Nuestro Trabajo">Support Our Work</h2>
   <p data-en="Donations support abortion access, advocacy, and care"
      data-es="Las donaciones apoyan el acceso al aborto, la defensa y la atención">
-  Donations support abortion access, advocacy, and care
+    Donations support abortion access, advocacy, and care
   </p>
 
   <div class="donate-grid">
     <div class="donate-card">
       <img src="./qr-pp.jpg" alt="Planned Parenthood donation QR code">
       <h3>Planned Parenthood</h3>
-      <p>Scan to donate</p>
+      <p data-en="Scan to donate" data-es="Escanea para donar">Scan to donate</p>
     </div>
 
     <div class="donate-card">
       <img src="./qr-tasc.jpg" alt="TASC donation QR code">
       <h3>TASC</h3>
-      <p>Scan to donate</p>
+      <p data-en="Scan to donate" data-es="Escanea para donar">Scan to donate</p>
     </div>
   </div>
 </section>
@@ -274,7 +357,7 @@ footer {
   <h2 data-en="Get Involved" data-es="Participa">Get Involved</h2>
   <p data-en="All UA students are welcome. No experience needed."
      data-es="Todos los estudiantes de la UA son bienvenidos. No se requiere experiencia.">
-  All UA students are welcome. No experience needed.
+    All UA students are welcome. No experience needed.
   </p>
 
   <div class="cta">
@@ -284,7 +367,8 @@ footer {
 </section>
 
 <footer>
-  <p>
+  <p data-en="Registered student organization at the University of Arizona. Affiliate of Planned Parenthood Arizona."
+     data-es="Organización estudiantil registrada en la Universidad de Arizona. Afiliada a Planned Parenthood Arizona.">
     Registered student organization at the University of Arizona. Affiliate of Planned Parenthood Arizona.
   </p>
 </footer>
@@ -292,11 +376,28 @@ footer {
 <script>
 let currentLang = "en";
 
+(function initLang() {
+  const saved = localStorage.getItem("ppgen_lang");
+  if (saved === "es" || saved === "en") currentLang = saved;
+  applyLang();
+})();
+
+function saveLang() {
+  localStorage.setItem("ppgen_lang", currentLang);
+}
+
 function toggleLanguage() {
   currentLang = currentLang === "en" ? "es" : "en";
+  localStorage.setItem("ppgen_lang", currentLang);
+  applyLang();
+}
+
+function applyLang() {
   document.querySelectorAll("[data-en]").forEach(el => {
     el.textContent = el.dataset[currentLang];
   });
+  const btn = document.getElementById("langBtn");
+  if (btn) btn.textContent = currentLang === "en" ? "ES" : "EN";
 }
 </script>
 
