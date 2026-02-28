@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>PPGen UA | Advocacy Committee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink-main: #e91e63;
+  --pink-soft: #fde6ef;
+  --pink-dark: #c2185b;
+  --ink: #1f1f1f;
+  --muted: #555;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--pink-soft); color: var(--ink); line-height: 1.7; }
+
+header {
+  background: radial-gradient(circle at top, #ff8bb8, #e91e63);
+  color: white;
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+  position: relative;
+}
+header h1 { font-size: 2.5rem; margin: 0; font-weight: 800; }
+header p { max-width: 760px; margin: 1rem auto 0; font-size: 1.1rem; }
+
+.lang-toggle { position: absolute; top: 1rem; right: 1rem; }
+.lang-toggle button {
+  background: transparent; border: 2px solid white; color: white;
+  padding: 0.4rem 0.8rem; border-radius: 999px; font-weight: 800; cursor: pointer;
+}
+
+section {
+  max-width: 1000px;
+  background: white;
+  margin: 2.5rem auto;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+h2 { color: var(--pink-main); font-size: 2rem; margin-top: 0; }
+p { color: var(--muted); font-size: 1.05rem; }
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.stat {
+  background: linear-gradient(180deg, #fff, #fff7fb);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 18px;
+  padding: 1.6rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+.stat h3 { margin: 0 0 0.4rem; font-size: 1.15rem; }
+.stat p { margin: 0; }
+
+.back {
+  display: inline-block;
+  margin-top: 1.2rem;
+  text-decoration: none;
+  color: var(--pink-main);
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  header h1 { font-size: 2rem; }
+  section { margin: 1.5rem 1rem; padding: 2rem; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="lang-toggle">
+    <button id="langBtn" onclick="toggleLanguage()">ES</button>
+  </div>
+
+  <h1 data-en="Advocacy Committee" data-es="Comité de Defensa">Advocacy Committee</h1>
+  <p data-en="Fall 2025 highlights and impact"
+     data-es="Logros e impacto de Otoño 2025">
+    Fall 2025 highlights and impact
+  </p>
+</header>
+
+<section>
+  <h2 data-en="What We Accomplished" data-es="Lo Que Logramos">What We Accomplished</h2>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <h3 data-en="Know Your Rights event" data-es="Evento de Conoce Tus Derechos">Know Your Rights event</h3>
+      <p data-en="Led a Know Your Rights event with UACD, expanding education, outreach, and advocacy across campus."
+         data-es="Lideramos un evento de Conoce Tus Derechos con UACD, ampliando la educación, el alcance y la defensa en el campus.">
+        Led a Know Your Rights event with UACD, expanding education, outreach, and advocacy across campus.
+      </p>
+    </div>
+
+    <div class="stat">
+      <h3 data-en="Two awareness tablings" data-es="Dos mesas informativas de concientización">Two awareness tablings</h3>
+      <p data-en="Hosted tablings for International Lesbian Day and National Latinx HIV/AIDS Awareness Day."
+         data-es="Hicimos mesas informativas por el Día Internacional de las Lesbianas y el Día Nacional de Concientización sobre VIH/SIDA Latinx.">
+        Hosted tablings for International Lesbian Day and National Latinx HIV/AIDS Awareness Day.
+      </p>
+    </div>
+
+    <div class="stat">
+      <h3 data-en="Campus Health partnerships" data-es="Alianzas con Campus Health">Campus Health partnerships</h3>
+      <p data-en="Tabled Campus Health’s Reproductive Health Fair and their Wellness Wonderland event."
+         data-es="Participamos con mesa informativa en la Feria de Salud Reproductiva de Campus Health y en Wellness Wonderland.">
+        Tabled Campus Health’s Reproductive Health Fair and their Wellness Wonderland event.
+      </p>
+    </div>
+
+    <div class="stat">
+      <h3 data-en="Plan B distribution" data-es="Distribución de Plan B">Plan B distribution</h3>
+      <p data-en="Led the distribution of more than 71 Plan B doses."
+         data-es="Lideramos la distribución de más de 71 dosis de Plan B.">
+        Led the distribution of more than 71 Plan B doses.
+      </p>
+    </div>
+  </div>
+
+  <a class="back" href="../" data-en="← Back to Home" data-es="← Volver al Inicio">← Back to Home</a>
+</section>
+
+<script>
+let currentLang = "en";
+
+(function initLang() {
+  const saved = localStorage.getItem("ppgen_lang");
+  if (saved === "es" || saved === "en") currentLang = saved;
+  applyLang();
+})();
+
+function toggleLanguage() {
+  currentLang = currentLang === "en" ? "es" : "en";
+  localStorage.setItem("ppgen_lang", currentLang);
+  applyLang();
+}
+
+function applyLang() {
+  document.querySelectorAll("[data-en]").forEach(el => {
+    el.textContent = el.dataset[currentLang];
+  });
+  const btn = document.getElementById("langBtn");
+  if (btn) btn.textContent = currentLang === "en" ? "ES" : "EN";
+}
+</script>
+
+</body>
+</html>
