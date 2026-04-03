@@ -47,7 +47,6 @@ header {
   background: linear-gradient(160deg, #fce4ec 0%, #f8bbd0 40%, #fce4ec 100%);
 }
 
-/* animated blobs */
 header::before,
 header::after {
   content: '';
@@ -57,23 +56,34 @@ header::after {
   opacity: 0.5;
   animation: drift 8s ease-in-out infinite alternate;
 }
+
 header::before {
-  width: 520px; height: 520px;
+  width: 520px;
+  height: 520px;
   background: radial-gradient(circle, #f48fb1, #e91e63);
-  top: -100px; left: -120px;
+  top: -100px;
+  left: -120px;
 }
+
 header::after {
-  width: 400px; height: 400px;
+  width: 400px;
+  height: 400px;
   background: radial-gradient(circle, #fce4ec, #f06292);
-  bottom: -60px; right: -80px;
+  bottom: -60px;
+  right: -80px;
   animation-delay: -4s;
 }
+
 @keyframes drift {
-  0%   { transform: translate(0,0) scale(1); }
+  0% { transform: translate(0,0) scale(1); }
   100% { transform: translate(30px,20px) scale(1.08); }
 }
 
-.header-inner { position: relative; z-index: 2; max-width: 700px; }
+.header-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
 
 header .eyebrow {
   display: inline-block;
@@ -128,13 +138,21 @@ header p.subhead {
   cursor: pointer;
   border: none;
 }
-.btn:hover { transform: translateY(-2px); }
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
 .btn-primary {
   background: var(--pink-main);
   color: white;
   box-shadow: 0 4px 18px rgba(233,30,99,0.35);
 }
-.btn-primary:hover { box-shadow: 0 8px 28px rgba(233,30,99,0.45); }
+
+.btn-primary:hover {
+  box-shadow: 0 8px 28px rgba(233,30,99,0.45);
+}
+
 .btn-outline {
   background: transparent;
   color: var(--pink-main);
@@ -143,9 +161,11 @@ header p.subhead {
 
 .lang-toggle {
   position: absolute;
-  top: 1.5rem; right: 1.5rem;
+  top: 1.5rem;
+  right: 1.5rem;
   z-index: 10;
 }
+
 .lang-toggle button {
   background: white;
   border: 2px solid var(--pink-main);
@@ -157,12 +177,12 @@ header p.subhead {
   cursor: pointer;
   transition: all 0.15s;
 }
+
 .lang-toggle button:hover {
   background: var(--pink-main);
   color: white;
 }
 
-/* scroll indicator */
 .scroll-hint {
   position: absolute;
   bottom: 2.5rem;
@@ -178,12 +198,14 @@ header p.subhead {
   opacity: 0.7;
   z-index: 2;
 }
+
 .scroll-hint .line {
   width: 1.5px;
   height: 40px;
   background: linear-gradient(to bottom, var(--pink-main), transparent);
   animation: scrollpulse 1.8s ease-in-out infinite;
 }
+
 @keyframes scrollpulse {
   0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
   50% { opacity: 1; transform: scaleY(1); }
@@ -200,8 +222,13 @@ section.block {
   padding: 5rem 1.5rem;
 }
 
-section.block:nth-child(odd) { background: var(--white); }
-section.block:nth-child(even) { background: var(--pink-pale); }
+section.block:nth-child(odd) {
+  background: var(--white);
+}
+
+section.block:nth-child(even) {
+  background: var(--pink-pale);
+}
 
 .section-label {
   font-size: 0.72rem;
@@ -248,14 +275,17 @@ p.section-body {
   border: 1px solid rgba(233,30,99,0.1);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
+
 .belief-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
 }
+
 .belief-card .icon {
   font-size: 2rem;
   margin-bottom: 0.8rem;
 }
+
 .belief-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.15rem;
@@ -263,6 +293,7 @@ p.section-body {
   color: var(--ink);
   margin-bottom: 0.5rem;
 }
+
 .belief-card p {
   color: var(--muted);
   font-size: 0.95rem;
@@ -289,18 +320,23 @@ p.section-body {
   position: relative;
   overflow: hidden;
 }
+
 .committee-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 4px;
   background: linear-gradient(90deg, var(--pink-main), var(--pink-mid));
 }
+
 .committee-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 40px rgba(233,30,99,0.13);
   border-color: rgba(233,30,99,0.3);
 }
+
 .committee-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.25rem;
@@ -308,10 +344,12 @@ p.section-body {
   color: var(--ink);
   margin-bottom: 0.5rem;
 }
+
 .committee-card p {
   color: var(--muted);
   font-size: 0.95rem;
 }
+
 .committee-card .tag {
   display: inline-block;
   margin-top: 1rem;
@@ -330,6 +368,7 @@ p.section-body {
   gap: 1rem;
   margin: 2.5rem 0;
 }
+
 .stat-bubble {
   background: linear-gradient(135deg, var(--pink-main), var(--pink-dark));
   border-radius: 20px;
@@ -337,6 +376,7 @@ p.section-body {
   text-align: center;
   color: white;
 }
+
 .stat-bubble .num {
   font-family: 'Playfair Display', serif;
   font-size: 2.8rem;
@@ -344,6 +384,7 @@ p.section-body {
   line-height: 1;
   display: block;
 }
+
 .stat-bubble .label {
   font-size: 0.85rem;
   opacity: 0.9;
@@ -354,34 +395,55 @@ p.section-body {
 /* ── GALLERY ── */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
-  gap: 0.75rem;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.9rem;
   margin-top: 2rem;
 }
 
 .gallery-item {
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   position: relative;
-  aspect-ratio: 4/3;
   background: var(--pink-soft);
+  min-height: 220px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
 }
-.gallery-item:nth-child(1) { grid-column: span 2; aspect-ratio: 16/9; }
+
 .gallery-item img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.35s ease;
 }
-.gallery-item:hover img { transform: scale(1.04); }
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+
 .gallery-item .overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(136,14,79,0.3), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(136,14,79,0.22), transparent 60%);
+  opacity: 1;
+  pointer-events: none;
 }
-.gallery-item:hover .overlay { opacity: 1; }
+
+.gallery-item.tall {
+  grid-column: span 4;
+  grid-row: span 2;
+  min-height: 460px;
+}
+
+.gallery-item.wide {
+  grid-column: span 8;
+  min-height: 220px;
+}
+
+.gallery-item.small {
+  grid-column: span 4;
+  min-height: 220px;
+}
 
 /* ── MEETINGS / LOGISTICS ── */
 .logistics-grid {
@@ -390,6 +452,7 @@ p.section-body {
   gap: 1.2rem;
   margin-top: 2rem;
 }
+
 .logistics-card {
   background: var(--white);
   border-radius: 18px;
@@ -397,10 +460,12 @@ p.section-body {
   border: 1px solid rgba(233,30,99,0.1);
   box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
+
 .logistics-card .lc-icon {
   font-size: 1.8rem;
   margin-bottom: 0.7rem;
 }
+
 .logistics-card h3 {
   font-weight: 700;
   font-size: 0.85rem;
@@ -409,12 +474,17 @@ p.section-body {
   color: var(--pink-main);
   margin-bottom: 0.4rem;
 }
-.logistics-card p, .logistics-card a {
+
+.logistics-card p,
+.logistics-card a {
   color: var(--muted);
   font-size: 0.98rem;
   text-decoration: none;
 }
-.logistics-card a:hover { color: var(--pink-main); }
+
+.logistics-card a:hover {
+  color: var(--pink-main);
+}
 
 /* ── DONATE ── */
 .donate-grid {
@@ -423,6 +493,7 @@ p.section-body {
   gap: 1.5rem;
   margin-top: 2rem;
 }
+
 .donate-card {
   background: var(--white);
   border-radius: 24px;
@@ -432,10 +503,12 @@ p.section-body {
   box-shadow: var(--shadow);
   transition: transform 0.18s, box-shadow 0.18s;
 }
+
 .donate-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 50px rgba(233,30,99,0.15);
 }
+
 .donate-card img {
   width: 150px;
   height: 150px;
@@ -444,13 +517,18 @@ p.section-body {
   margin-bottom: 1.2rem;
   border: 1px solid rgba(0,0,0,0.06);
 }
+
 .donate-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
   color: var(--ink);
   margin-bottom: 0.4rem;
 }
-.donate-card p { color: var(--muted); font-size: 0.95rem; }
+
+.donate-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
 
 /* ── GET INVOLVED ── */
 .involve-wrap {
@@ -461,20 +539,29 @@ p.section-body {
   color: white;
   margin-top: 1rem;
 }
+
 .involve-wrap h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 900;
   margin-bottom: 0.8rem;
 }
-.involve-wrap p { opacity: 0.9; margin-bottom: 2rem; font-size: 1.05rem; }
+
+.involve-wrap p {
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
 .involve-wrap .btn-outline {
   color: white;
   border-color: rgba(255,255,255,0.6);
 }
+
 .involve-wrap .btn-outline:hover {
   background: rgba(255,255,255,0.15);
 }
+
 .involve-wrap .btn-primary {
   background: white;
   color: var(--pink-main);
@@ -488,83 +575,59 @@ footer {
   color: rgba(255,255,255,0.5);
   font-size: 0.88rem;
 }
-footer strong { color: rgba(255,255,255,0.8); }
+
+footer strong {
+  color: rgba(255,255,255,0.8);
+}
 
 /* ── DIVIDER ── */
 .divider {
-  width: 60px; height: 3px;
+  width: 60px;
+  height: 3px;
   background: linear-gradient(90deg, var(--pink-main), var(--pink-mid));
   border-radius: 999px;
   margin: 1rem 0 1.5rem;
 }
 
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item,
+  .gallery-item.tall,
+  .gallery-item.wide,
+  .gallery-item.small {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 240px;
+  }
+}
+
 @media (max-width: 700px) {
-  .gallery { grid-template-columns: 1fr 1fr; }
-  .gallery-item:nth-child(1) { grid-column: span 2; }
-  .involve-wrap { padding: 2.5rem 1.5rem; }
-}
-@media (max-width: 460px) {
-  .gallery { grid-template-columns: 1fr; }
-  .gallery-item:nth-child(1) { grid-column: span 1; }
+  .involve-wrap {
+    padding: 2.5rem 1.5rem;
+  }
 }
 
-/* ── LIGHTBOX ── */
-.gallery-item { cursor: zoom-in; }
+@media (max-width: 560px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
 
-#lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(15,5,20,0.92);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.22s ease, visibility 0.22s ease;
+  .gallery-item,
+  .gallery-item.tall,
+  .gallery-item.wide,
+  .gallery-item.small {
+    grid-column: span 1;
+    min-height: 220px;
+  }
 }
-#lightbox.open {
-  visibility: visible;
-  opacity: 1;
-}
-
-#lightbox img {
-  max-width: min(90vw, 1100px);
-  max-height: 88vh;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-  transform: scale(0.93);
-  transition: transform 0.22s ease;
-  display: block;
-}
-#lightbox.open img {
-  transform: scale(1);
-}
-
-#lb-close {
-  position: fixed;
-  top: 1.2rem; left: 1.5rem;
-  background: rgba(255,255,255,0.12);
-  border: 1.5px solid rgba(255,255,255,0.3);
-  color: white;
-  width: 46px; height: 46px;
-  border-radius: 50%;
-  font-size: 1.3rem;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.15s, transform 0.15s;
-  z-index: 10000;
-}
-#lb-close:hover { background: rgba(255,255,255,0.25); transform: scale(1.08); }
 </style>
 </head>
 
 <body>
 
-<!-- ══ HEADER ══ -->
 <header>
   <div class="lang-toggle">
     <button id="langBtn" onclick="toggleLanguage()">ES</button>
@@ -600,8 +663,6 @@ footer strong { color: rgba(255,255,255,0.8); }
   </div>
 </header>
 
-
-<!-- ══ WHO WE ARE ══ -->
 <section class="block">
   <div class="container">
     <p class="section-label" data-en="About Us" data-es="Sobre Nosotros">About Us</p>
@@ -617,11 +678,12 @@ footer strong { color: rgba(255,255,255,0.8); }
       <div class="belief-card">
         <div class="icon">🏥</div>
         <h3 data-en="Reproductive Justice" data-es="Justicia Reproductiva">Reproductive Justice</h3>
-        <p data-en="We believe in the fundamental right to have a child if you want, or not if you don't — on your own terms. This includes safe pregnancy, birth, parenting, and adoption experiences."
+        <p data-en="We believe in the fundamental right to have a child if you want, or not if you do not, on your own terms. This includes safe pregnancy, birth, parenting, and adoption experiences."
            data-es="Creemos en el derecho fundamental a tener un hijo si lo deseas, o no si no lo deseas, en tus propios términos. Esto incluye experiencias seguras de embarazo, parto, crianza y adopción.">
-          We believe in the fundamental right to have a child if you want, or not if you don't — on your own terms. This includes safe pregnancy, birth, parenting, and adoption experiences.
+          We believe in the fundamental right to have a child if you want, or not if you do not, on your own terms. This includes safe pregnancy, birth, parenting, and adoption experiences.
         </p>
       </div>
+
       <div class="belief-card">
         <div class="icon">✊</div>
         <h3 data-en="Intersectionality" data-es="Interseccionalidad">Intersectionality</h3>
@@ -630,41 +692,41 @@ footer strong { color: rgba(255,255,255,0.8); }
           We acknowledge the deep-rooted intersections between reproduction and marginalized identity, and are especially responsive to the needs of the most marginalized communities.
         </p>
       </div>
+
       <div class="belief-card">
         <div class="icon">🔗</div>
         <h3 data-en="Coalition Building" data-es="Construcción de Coaliciones">Coalition Building</h3>
-        <p data-en="We serve as a coalition partner to campus, local, state, national, and international reproductive justice efforts — connecting students with the broader movement."
+        <p data-en="We serve as a coalition partner to campus, local, state, national, and international reproductive justice efforts, connecting students with the broader movement."
            data-es="Servimos como socios de coalición en esfuerzos de justicia reproductiva locales, estatales, nacionales e internacionales.">
-          We serve as a coalition partner to campus, local, state, national, and international reproductive justice efforts — connecting students with the broader movement.
+          We serve as a coalition partner to campus, local, state, national, and international reproductive justice efforts, connecting students with the broader movement.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ══ WHAT WE DO ══ -->
 <section class="block">
   <div class="container">
     <p class="section-label" data-en="Our Work" data-es="Nuestro Trabajo">Our Work</p>
     <h2 class="section-title">What We <em>Do</em></h2>
     <div class="divider"></div>
     <p class="section-body"
-       data-en="PPGen mobilizes advocates, educates the campus community on sexual and reproductive health, distributes sexual health materials (e.g., Plan B) in partnership with WGRC/FORCE, and builds partnerships across Tucson and beyond."
-       data-es="PPGen moviliza a defensores, educa a la comunidad universitaria sobre salud sexual y reproductiva, distribuye materiales de salud (por ejemplo, Plan B) en asociación con WGRC/FORCE, y construye alianzas en Tucson y más allá.">
-      PPGen mobilizes advocates, educates the campus community on sexual and reproductive health, distributes sexual health materials (e.g., Plan B) in partnership with WGRC/FORCE, and builds partnerships across Tucson and beyond.
+       data-en="PPGen mobilizes advocates, educates the campus community on sexual and reproductive health, distributes sexual health materials (for example, Plan B) in partnership with WGRC and FORCE, and builds partnerships across Tucson and beyond."
+       data-es="PPGen moviliza a defensores, educa a la comunidad universitaria sobre salud sexual y reproductiva, distribuye materiales de salud (por ejemplo, Plan B) en asociación con WGRC y FORCE, y construye alianzas en Tucson y más allá.">
+      PPGen mobilizes advocates, educates the campus community on sexual and reproductive health, distributes sexual health materials (for example, Plan B) in partnership with WGRC and FORCE, and builds partnerships across Tucson and beyond.
     </p>
 
-    <!-- Key stats from Fall 2025 -->
     <div class="stats-row">
       <div class="stat-bubble">
         <span class="num">71+</span>
         <span class="label" data-en="Plan B doses distributed" data-es="Dosis de Plan B distribuidas">Plan B doses distributed</span>
       </div>
+
       <div class="stat-bubble" style="background: linear-gradient(135deg,#c2185b,#880e4f);">
         <span class="num">10+</span>
         <span class="label" data-en="Supporter cards collected" data-es="Tarjetas de apoyo recolectadas">Supporter cards collected</span>
       </div>
+
       <div class="stat-bubble" style="background: linear-gradient(135deg,#f06292,#e91e63);">
         <span class="num">4+</span>
         <span class="label" data-en="Campus events & tablings" data-es="Eventos y mesas informativas">Campus events & tablings</span>
@@ -672,24 +734,22 @@ footer strong { color: rgba(255,255,255,0.8); }
     </div>
 
     <p class="section-body" style="margin-top: 1rem;"
-       data-en="Our advocacy covers: sex education, STI testing, abortion access, domestic violence prevention, maternal health, an end to forced sterilization, privacy rights, sexual liberation, and the rights of marginalized communities."
-       data-es="Nuestra defensa abarca: educación sexual, pruebas de ETS, acceso al aborto, prevención de violencia doméstica, salud materna, fin a la esterilización forzada, derechos de privacidad y derechos de las comunidades marginadas.">
-      Our advocacy covers: sex education, STI testing, abortion access, domestic violence prevention, maternal health, an end to forced sterilization, privacy rights, sexual liberation, and the rights of marginalized communities.
+       data-en="Our advocacy covers sex education, STI testing, abortion access, domestic violence prevention, maternal health, an end to forced sterilization, privacy rights, sexual liberation, and the rights of marginalized communities."
+       data-es="Nuestra defensa abarca educación sexual, pruebas de ETS, acceso al aborto, prevención de violencia doméstica, salud materna, fin a la esterilización forzada, derechos de privacidad y derechos de las comunidades marginadas.">
+      Our advocacy covers sex education, STI testing, abortion access, domestic violence prevention, maternal health, an end to forced sterilization, privacy rights, sexual liberation, and the rights of marginalized communities.
     </p>
   </div>
 </section>
 
-
-<!-- ══ COMMITTEES ══ -->
 <section class="block">
   <div class="container">
     <p class="section-label" data-en="Spring 2026" data-es="Primavera 2026">Spring 2026</p>
     <h2 class="section-title">Our <em>Committees</em></h2>
     <div class="divider"></div>
     <p class="section-body"
-       data-en="Our three committees drive the heart of our work. Click to see Fall 2025 highlights and what we're building this semester."
+       data-en="Our three committees drive the heart of our work. Click to see Fall 2025 highlights and what we are building this semester."
        data-es="Nuestros tres comités impulsan el corazón de nuestro trabajo. Haz clic para ver los logros de Otoño 2025 y lo que construiremos este semestre.">
-      Our three committees drive the heart of our work. Click to see Fall 2025 highlights and what we're building this semester.
+      Our three committees drive the heart of our work. Click to see Fall 2025 highlights and what we are building this semester.
     </p>
 
     <div class="committee-grid">
@@ -723,8 +783,6 @@ footer strong { color: rgba(255,255,255,0.8); }
   </div>
 </section>
 
-
-<!-- ══ GALLERY ══ -->
 <section class="block">
   <div class="container">
     <p class="section-label" data-en="Our Community" data-es="Nuestra Comunidad">Our Community</p>
@@ -737,27 +795,32 @@ footer strong { color: rgba(255,255,255,0.8); }
     </p>
 
     <div class="gallery">
-      <div class="gallery-item" onclick="openLightbox('IMG_0387.JPG')">
+      <div class="gallery-item wide">
         <img src="IMG_0387.JPG" alt="PPGEN tabling on campus">
         <div class="overlay"></div>
       </div>
-      <div class="gallery-item" onclick="openLightbox('IMG_1589.JPG')">
+
+      <div class="gallery-item small">
         <img src="IMG_1589.JPG" alt="PPGEN members at event">
         <div class="overlay"></div>
       </div>
-      <div class="gallery-item" onclick="openLightbox('IMG_1843.JPG')">
+
+      <div class="gallery-item small">
         <img src="IMG_1843.JPG" alt="PPGEN campus outreach">
         <div class="overlay"></div>
       </div>
-      <div class="gallery-item" onclick="openLightbox('IMG_2383.JPG')">
+
+      <div class="gallery-item tall">
         <img src="IMG_2383.JPG" alt="PPGEN advocacy event">
         <div class="overlay"></div>
       </div>
-      <div class="gallery-item" onclick="openLightbox('IMG_2510.JPG')">
+
+      <div class="gallery-item small">
         <img src="IMG_2510.JPG" alt="PPGEN meeting">
         <div class="overlay"></div>
       </div>
-      <div class="gallery-item" onclick="openLightbox('IMG_9137 2.JPG')">
+
+      <div class="gallery-item small">
         <img src="IMG_9137 2.JPG" alt="PPGEN community">
         <div class="overlay"></div>
       </div>
@@ -765,14 +828,6 @@ footer strong { color: rgba(255,255,255,0.8); }
   </div>
 </section>
 
-<!-- ══ LIGHTBOX ══ -->
-<div id="lightbox" onclick="closeLightbox()">
-  <button id="lb-close" onclick="event.stopPropagation(); closeLightbox();" aria-label="Close">&#8592;</button>
-  <img id="lb-img" src="" alt="Expanded photo">
-</div>
-
-
-<!-- ══ MEETINGS & LOGISTICS ══ -->
 <section class="block" id="get-involved">
   <div class="container">
     <p class="section-label" data-en="Join Us" data-es="Únete">Join Us</p>
@@ -793,6 +848,7 @@ footer strong { color: rgba(255,255,255,0.8); }
           Weekly meetings are open to Active Members. You must apply and be accepted as an Active Member before attending. Applications open during the first few weeks of the fall semester.
         </p>
       </div>
+
       <div class="logistics-card">
         <div class="lc-icon">📋</div>
         <h3 data-en="Applications" data-es="Solicitudes">Applications</h3>
@@ -801,11 +857,13 @@ footer strong { color: rgba(255,255,255,0.8); }
           Officer applications open during the first few weeks of each fall semester.
         </p>
       </div>
+
       <div class="logistics-card">
         <div class="lc-icon">✉️</div>
         <h3 data-en="Email Us" data-es="Escríbenos">Email Us</h3>
         <p><a href="mailto:ppgenaction.ua@gmail.com">ppgenaction.ua@gmail.com</a></p>
       </div>
+
       <div class="logistics-card">
         <div class="lc-icon">📸</div>
         <h3>Instagram</h3>
@@ -815,8 +873,6 @@ footer strong { color: rgba(255,255,255,0.8); }
   </div>
 </section>
 
-
-<!-- ══ DONATE ══ -->
 <section class="block">
   <div class="container">
     <p class="section-label" data-en="Make an Impact" data-es="Genera un Impacto">Make an Impact</p>
@@ -836,6 +892,7 @@ footer strong { color: rgba(255,255,255,0.8); }
           Scan to donate to Planned Parenthood
         </p>
       </div>
+
       <div class="donate-card">
         <img src="qr-tasc.jpg" alt="TASC donation QR code">
         <h3>TASC</h3>
@@ -847,15 +904,13 @@ footer strong { color: rgba(255,255,255,0.8); }
   </div>
 </section>
 
-
-<!-- ══ GET INVOLVED CTA ══ -->
 <section class="block">
   <div class="container">
     <div class="involve-wrap">
       <h2 data-en="Ready to Take Action?" data-es="¿Lista para Actuar?">Ready to Take Action?</h2>
-      <p data-en="Join a community of students fighting for reproductive justice. All are welcome — no experience required."
+      <p data-en="Join a community of students fighting for reproductive justice. All are welcome, no experience required."
          data-es="Únete a una comunidad de estudiantes que luchan por la justicia reproductiva. Todos son bienvenidos, sin experiencia requerida.">
-        Join a community of students fighting for reproductive justice. All are welcome — no experience required.
+        Join a community of students fighting for reproductive justice. All are welcome, no experience required.
       </p>
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
         <a class="btn btn-primary" href="mailto:ppgenaction.ua@gmail.com" data-en="Email Us" data-es="Escríbenos">Email Us</a>
@@ -866,38 +921,39 @@ footer strong { color: rgba(255,255,255,0.8); }
   </div>
 </section>
 
-
-<!-- ══ FOOTER ══ -->
 <footer>
-  <p data-en="<strong>Planned Parenthood Generation Action — University of Arizona</strong><br>Registered student organization · Affiliate of Planned Parenthood Arizona"
-     data-es="<strong>Planned Parenthood Generación Acción — Universidad de Arizona</strong><br>Organización estudiantil registrada · Afiliada a Planned Parenthood Arizona">
-    <strong>Planned Parenthood Generation Action — University of Arizona</strong><br>
-    Registered student organization · Affiliate of Planned Parenthood Arizona
+  <p data-en="<strong>Planned Parenthood Generation Action, University of Arizona</strong><br>Registered student organization, Affiliate of Planned Parenthood Arizona"
+     data-es="<strong>Planned Parenthood Generación Acción, Universidad de Arizona</strong><br>Organización estudiantil registrada, Afiliada a Planned Parenthood Arizona">
+    <strong>Planned Parenthood Generation Action, University of Arizona</strong><br>
+    Registered student organization, Affiliate of Planned Parenthood Arizona
   </p>
 </footer>
 
-
 <script>
-function openLightbox(src) {
-  var lb = document.getElementById('lightbox');
-  var img = document.getElementById('lb-img');
-  img.src = src;
-  lb.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLightbox();
-});
-
 let currentLang = "en";
+
+function applyLang() {
+  document.documentElement.lang = currentLang;
+
+  document.querySelectorAll("[data-en]").forEach(function(el) {
+    if (currentLang === "es" && el.dataset.es) {
+      el.innerHTML = el.dataset.es;
+    } else {
+      el.innerHTML = el.dataset.en;
+    }
+  });
+
+  const btn = document.getElementById("langBtn");
+  if (btn) {
+    btn.textContent = currentLang === "en" ? "ES" : "EN";
+  }
+}
 
 (function initLang() {
   const saved = localStorage.getItem("ppgen_lang");
-  if (saved === "es" || saved === "en") currentLang = saved;
+  if (saved === "es" || saved === "en") {
+    currentLang = saved;
+  }
   applyLang();
 })();
 
@@ -908,4 +964,9 @@ function saveLang() {
 function toggleLanguage() {
   currentLang = currentLang === "en" ? "es" : "en";
   localStorage.setItem("ppgen_lang", currentLang);
-  applyLa
+  applyLang();
+}
+</script>
+
+</body>
+</html>
