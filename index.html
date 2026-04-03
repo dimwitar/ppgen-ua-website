@@ -507,6 +507,51 @@ footer strong { color: rgba(255,255,255,0.8); }
   .gallery { grid-template-columns: 1fr; }
   .gallery-item:nth-child(1) { grid-column: span 1; }
 }
+
+/* ── LIGHTBOX ── */
+.gallery-item { cursor: zoom-in; }
+
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15,5,20,0.92);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+#lightbox.open { display: flex; }
+
+#lightbox img {
+  max-width: min(90vw, 1100px);
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  animation: lbIn 0.22s ease;
+}
+@keyframes lbIn {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+#lb-close {
+  position: fixed;
+  top: 1.2rem; left: 1.5rem;
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: white;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, transform 0.15s;
+  z-index: 1001;
+}
+#lb-close:hover { background: rgba(255,255,255,0.25); transform: scale(1.08); }
 </style>
 </head>
 
@@ -535,7 +580,7 @@ footer strong { color: rgba(255,255,255,0.8); }
     </p>
 
     <div class="header-cta">
-      <a class="btn btn-primary" href="mailto:ppgenaction.ua@gmail.com"
+      <a class="btn btn-primary" href="#get-involved" onclick="event.preventDefault();document.getElementById('get-involved').scrollIntoView({behavior:'smooth'});"
          data-en="Get Involved" data-es="Únete">Get Involved</a>
       <a class="btn btn-outline" href="https://www.instagram.com/uappgen/" target="_blank" rel="noopener"
          data-en="Follow Us @UAPPGEN" data-es="Síguenos @UAPPGEN">Follow Us @UAPPGEN</a>
@@ -685,27 +730,27 @@ footer strong { color: rgba(255,255,255,0.8); }
     </p>
 
     <div class="gallery">
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('IMG_0387.JPG')">
         <img src="IMG_0387.JPG" alt="PPGEN tabling on campus">
         <div class="overlay"></div>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('IMG_1589.JPG')">
         <img src="IMG_1589.JPG" alt="PPGEN members at event">
         <div class="overlay"></div>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('IMG_1843.JPG')">
         <img src="IMG_1843.JPG" alt="PPGEN campus outreach">
         <div class="overlay"></div>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('IMG_2383.JPG')">
         <img src="IMG_2383.JPG" alt="PPGEN advocacy event">
         <div class="overlay"></div>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('IMG_2510.JPG')">
         <img src="IMG_2510.JPG" alt="PPGEN meeting">
         <div class="overlay"></div>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('IMG_9137 2.JPG')">
         <img src="IMG_9137 2.JPG" alt="PPGEN community">
         <div class="overlay"></div>
       </div>
@@ -713,9 +758,15 @@ footer strong { color: rgba(255,255,255,0.8); }
   </div>
 </section>
 
+<!-- ══ LIGHTBOX ══ -->
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lb-close" onclick="closeLightbox()" aria-label="Close">&#8592;</button>
+  <img id="lb-img" src="" alt="Expanded photo">
+</div>
+
 
 <!-- ══ MEETINGS & LOGISTICS ══ -->
-<section class="block">
+<section class="block" id="get-involved">
   <div class="container">
     <p class="section-label" data-en="Join Us" data-es="Únete">Join Us</p>
     <h2 class="section-title">Meetings & <em>Logistics</em></h2>
@@ -730,8 +781,9 @@ footer strong { color: rgba(255,255,255,0.8); }
       <div class="logistics-card">
         <div class="lc-icon">📅</div>
         <h3 data-en="Weekly Meetings" data-es="Reuniones Semanales">Weekly Meetings</h3>
-        <p data-en="Tuesdays, 6:00–7:30 PM @ Student Union" data-es="Martes, 6:00–7:30 PM en el Student Union">
-          Tuesdays, 6:00–7:30 PM @ Student Union
+        <p data-en="Weekly meetings are open to Active Members. You must apply and be accepted as an Active Member before attending. Applications open during the first few weeks of the fall semester."
+           data-es="Las reuniones semanales están abiertas a los Miembros Activos. Debes solicitar y ser aceptado como Miembro Activo antes de asistir. Las solicitudes se abren durante las primeras semanas del semestre de otoño.">
+          Weekly meetings are open to Active Members. You must apply and be accepted as an Active Member before attending. Applications open during the first few weeks of the fall semester.
         </p>
       </div>
       <div class="logistics-card">
@@ -745,7 +797,7 @@ footer strong { color: rgba(255,255,255,0.8); }
       <div class="logistics-card">
         <div class="lc-icon">✉️</div>
         <h3 data-en="Email Us" data-es="Escríbenos">Email Us</h3>
-        <p><a href="mailto:ppgenaction.ua@gmail.com">ppgenaction.ua@gmail.com</a></p>
+        <p><a href="/cdn-cgi/l/email-protection#cdbdbdaaa8a3acaeb9a4a2a3e3b8ac8daaa0aca4a1e3aea2a0"><span class="__cf_email__" data-cfemail="4838382f2d26292b3c212726663d29082f25292124662b2725">[email&#160;protected]</span></a></p>
       </div>
       <div class="logistics-card">
         <div class="lc-icon">📸</div>
@@ -799,8 +851,7 @@ footer strong { color: rgba(255,255,255,0.8); }
         Join a community of students fighting for reproductive justice. All are welcome — no experience required.
       </p>
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a class="btn btn-primary" href="mailto:ppgenaction.ua@gmail.com"
-           data-en="Email Us" data-es="Escríbenos">Email Us</a>
+        <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#23535344464d4240574a4c4d0d564263444e424a4f0d404c4e" data-en="Email Us" data-es="Escríbenos">Email Us</a>
         <a class="btn btn-outline" href="https://www.instagram.com/uappgen/" target="_blank" rel="noopener"
            data-en="Follow on Instagram" data-es="Síguenos en Instagram">Follow on Instagram</a>
       </div>
@@ -819,7 +870,20 @@ footer strong { color: rgba(255,255,255,0.8); }
 </footer>
 
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function openLightbox(src) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
 let currentLang = "en";
 
 (function initLang() {
@@ -835,18 +899,4 @@ function saveLang() {
 function toggleLanguage() {
   currentLang = currentLang === "en" ? "es" : "en";
   localStorage.setItem("ppgen_lang", currentLang);
-  applyLang();
-}
-
-function applyLang() {
-  document.querySelectorAll("[data-en]").forEach(el => {
-    const val = el.dataset[currentLang];
-    if (val !== undefined) el.innerHTML = val;
-  });
-  const btn = document.getElementById("langBtn");
-  if (btn) btn.textContent = currentLang === "en" ? "ES" : "EN";
-}
-</script>
-
-</body>
-</html>
+  applyLa
